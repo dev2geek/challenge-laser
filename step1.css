@@ -1,0 +1,100 @@
+.box {
+    position:absolute;
+    background-color: #ddd;
+    width: 500px;
+    height: 500px;
+    top: 100px;
+    left: 100px;
+}
+
+.mirror {
+    -webkit-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    transform-origin: 0 0;
+    
+    height: 3px; 
+    background: #000;
+    opacity: 1;
+    width: 100px;
+    position: absolute;   
+}
+
+
+#ma {
+    top: 470px;
+    left: 490px;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+/*#ma {
+    top: 10px;
+    left: 10px;
+}*/
+
+.left-most {
+    float:left;
+}
+
+.right-most {
+    float:right;
+}
+
+/*#mb {
+    top: 20px;
+    left: 10px;
+}*/
+
+#mb {
+    left: 410px;
+    top: 100px;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+
+div.line{
+    -webkit-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    transform-origin: 0 0;
+    height: 2px; 
+    background: #f00;
+}
+
+.dot {
+    background: #000;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+#source {
+    position:absolute;
+    left:97px;
+    top:497px;
+}
+
+#sacrifice {
+    position: absolute;
+    left: 447px;
+    top: 397px;
+}
+
+#pharaoh {
+    position: absolute;
+    left: 297px;
+    top: 147px;   
+}
+            
+.niddle {
+    width: 0;
+    height: 0;
+}
+
+.dot .niddle {
+    position: relative;
+    left: 3px;
+    top: 3px;
+}
