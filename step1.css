@@ -1,11 +1,16 @@
+h1 {
+    margin: 10px;
+}
+
 .container {
-    padding: 10px 60px;
+    padding: 0 60px;
 }
 
 .story {
     width: 413px;
     height: 316px;
-    background-image: url("./images/step1_story.png");
+    /*background-image: url("./images/step1_story.png");*/
+    background-image: url("http://img03.taobaocdn.com/tps/i3/T1T9NMFm4gXXX5sTf7-413-316.png");
 }
 
 .story_desc {
@@ -19,8 +24,8 @@
     position:absolute;
     background-color: #fff;
     width: 600px;
-    height: 350px;
-    top: 344px;
+    height: 300px;
+    top: 294px;
     left: 424px;
     border: 6px solid #333;
 
@@ -45,7 +50,7 @@
 
 
 #ma {
-    top: 680px;
+    top: 580px;
     left: 960px;
     /*-webkit-transform: rotate(-85deg);
     -moz-transform: rotate(-85deg);
@@ -78,7 +83,7 @@
 
 #mb {
     left: 550px;
-    top: 550px;
+    top: 450px;
     /*-webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     transform: rotate(90deg);*/
@@ -111,25 +116,25 @@ div.line{
 #source {
     position:absolute;
     left:364px;
-    top:644px;
+    top:544px;
 }
 
 #source .niddle {
     position: absolute;
     left: 430px;
-    top: 650px;
+    top: 550px;
 }
 
 #sacrifice {
     position: absolute;
     left: 797px;
-    top: 597px;
+    top: 497px;
 }
 
 #pharaoh {
     position: absolute;
-    left: 797px;
-    top: 397px;   
+    left: 497px;
+    top: 497px;   
 }
             
 .niddle {
