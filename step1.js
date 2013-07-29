@@ -1,23 +1,23 @@
 var left_line = {x: 430},
     right_line = {x: 1030},
-    top_line = {y: 350},
-    bottom_line = {y: 700},
+    top_line = {y: 300},
+    bottom_line = {y: 600},
     // source_x = 100,
     // source_y = 500,
     source_x = 430,
-    source_y = 655,
+    source_y = 555,
     sacrifice = {
         x: 800,
-        y: 600
+        y: 500
     },
     pharaoh = {
-        x: 800,
-        y: 400
+        x: 500,
+        y: 500
     },
     MINIMUM_X = 430,
     MAXIMUM_X = 1030,
-    MINIMUM_Y = 350,
-    MAXIMUM_Y = 700,
+    MINIMUM_Y = 250,
+    MAXIMUM_Y = 600,
     ACCURACY = 3,
     MAX_REFLECTION = 10,
     __NodeList,
