@@ -1,22 +1,27 @@
-var left_line = {x: 100},
-    right_line = {x: 600},
-    top_line = {y: 100},
-    bottom_line = {y: 600},
-    source_x = 100,
-    source_y = 500,
+var left_line = {x: 430},
+    right_line = {x: 1030},
+    top_line = {y: 350},
+    bottom_line = {y: 700},
+    // source_x = 100,
+    // source_y = 500,
+    source_x = 430,
+    source_y = 655,
     sacrifice = {
-        x: 450,
-        y: 400
+        x: 800,
+        y: 600
     },
     pharaoh = {
-        x: 300,
-        y: 150
+        x: 800,
+        y: 400
     },
-    MINIMUM = 100,
-    MAXIMUM = 600,
+    MINIMUM_X = 430,
+    MAXIMUM_X = 1030,
+    MINIMUM_Y = 350,
+    MAXIMUM_Y = 700,
     ACCURACY = 3,
     MAX_REFLECTION = 10,
-    __NodeList;
+    __NodeList,
+    drawHandler;
 
 // 寻找给定点(x1, y1)关于某直线(jy-kx-b=0)的对称镜像点
 function getMirrorPoint(x1, y1, line_eq) {
@@ -121,7 +126,7 @@ function checkAngle(x1, y1, x2, y2, angle) {
         cal_sin_angle = (y2 - y1)/distance,
         sin_angle = Math.sin(Math.PI/180*angle);
     
-    if (Math.abs(cal_sin_angle - sin_angle) < 0.0000001) {
+    if (Math.abs(cal_sin_angle - sin_angle) < 0.1) {
         return true;
     } else {
         return false;
@@ -223,7 +228,7 @@ function getAngle(id) {
     matrix = target.css("-webkit-transform");
     angle = getAngleFromMatrix(matrix);
     
-    console.log("angle:"+angle);
+    // console.log("angle:"+angle);
     return angle;
 }
 
@@ -293,12 +298,12 @@ function getLineFuncBy2Po(x1,y1,x2,y2) {
         if (point && (point.x !== undefined || point.y !== undefined)) {
             if (point.x !== undefined && point.y !== undefined) {
                 var distance = Math.abs(line.k*point.x - line.j*point.y + line.b)/Math.sqrt(line.k*line.k + line.j*line.j);
-                console.log(distance);
+                // console.log(distance);
                 if (distance < ACCURACY) {
-                    console.log("on this line");
+                    //console.log("on this line");
                     return true;
                 } else {
-                    console.log("not on this line");
+                    //console.log("not on this line");
                     return false;
                 }
                 //if ((x2-x1)*point.y == ((y1-y2)*point.x + (x1*y2 - y1*x2)/(x1 - x2))){
@@ -362,12 +367,12 @@ function getLineFuncByPoAn(x1, y1, angle) {
             
             if (point.x !== undefined && point.y !== undefined) {    
                 var distance = Math.abs(line.k*point.x - line.j*point.y + line.b)/Math.sqrt(line.k*line.k + line.j*line.j);
-                console.log(distance);
+                // console.log(distance);
                 if (distance < ACCURACY) {
-                    console.log("on this line");
+                    //console.log("on this line");
                     return true;
                 } else {
-                    console.log("not on this line");
+                    //console.log("not on this line");
                     return false;
                 }
             } else if (point.x === undefined) {
@@ -390,12 +395,22 @@ function getDistance(x1, y1, x2, y2) {
 
 // 判断点(x1, y1)是否box内
 function isInBox(x1, y1) {
-    if ((x1 >= MINIMUM && x1 <= MAXIMUM) && (y1 >= MINIMUM && y1 <= MAXIMUM)) {
+    if ((x1 >= MINIMUM_X && x1 <= MAXIMUM_X) && (y1 >= MINIMUM_Y && y1 <= MAXIMUM_Y)) {
         return true;
     } else {
         return false;
     }
 }
+
+// 判断两点是否在直线同侧
+function isSameSide(lineFunc, x1, y1, x2, y2) {
+    var same_side = (lineFunc.j * y1 - lineFunc.k * x1 - lineFunc.b) * (lineFunc.j * y2 - lineFunc.k * x2 - lineFunc.b);
+    if (same_side >= 0) {
+        return true;
+    } else {
+        return false;
+    }
+}   
 
 // 判断target值是否在refA和refB之间
 function _isBetween(refA, refB, target) {

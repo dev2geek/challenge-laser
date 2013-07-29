@@ -1,31 +1,55 @@
+.container {
+    padding: 10px 60px;
+}
+
+.story {
+    width: 413px;
+    height: 316px;
+    background-image: url("./images/step1_story.png");
+}
+
+.story_desc {
+    padding-left: 35px;
+    padding-top: 100px;
+    font-size: 18px;
+    color: #ccc;
+}
+
 .box {
     position:absolute;
-    background-color: #ddd;
-    width: 500px;
-    height: 500px;
-    top: 100px;
-    left: 100px;
+    background-color: #fff;
+    width: 600px;
+    height: 350px;
+    top: 344px;
+    left: 424px;
+    border: 6px solid #333;
+
 }
 
 .mirror {
-    -webkit-transform-origin: 0 0;
+    /*-webkit-transform-origin: 0 0;
     -moz-transform-origin: 0 0;
-    transform-origin: 0 0;
+    transform-origin: 0 0;*/
     
-    height: 3px; 
-    background: #000;
+    height: 15px; 
+    
     opacity: 1;
-    width: 100px;
+    width: 60px;
     position: absolute;   
+
+    /*border-top: 2px solid black;*/
+
+    background-color: #ddd;
+    -webkit-border-radius:  0 0 30px 30px;
 }
 
 
 #ma {
-    top: 470px;
-    left: 490px;
-    -webkit-transform: rotate(110deg);
-    -moz-transform: rotate(110deg);
-    transform: rotate(110deg);
+    top: 680px;
+    left: 960px;
+    /*-webkit-transform: rotate(-85deg);
+    -moz-transform: rotate(-85deg);
+    transform: rotate(-85deg);*/
 }
 
 /*#ma {
@@ -41,17 +65,23 @@
     float:right;
 }
 
+.mirror .reference {
+    position: relative;
+    left: 30px;
+    top: 10px;
+}
+
 /*#mb {
     top: 20px;
     left: 10px;
 }*/
 
 #mb {
-    left: 399px;
-    top: 399px;
-    -webkit-transform: rotate(125deg);
-    -moz-transform: rotate(125deg);
-    transform: rotate(125deg);
+    left: 550px;
+    top: 550px;
+    /*-webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    transform: rotate(90deg);*/
 }
 
 
@@ -70,22 +100,36 @@ div.line{
     border-radius: 50%;
 }
 
+.light {
+    border-left: 3px solid #555;
+    border-top: 3px solid #555;
+    border-bottom: 3px solid #555;
+    width: 60px;
+    height: 20px;
+}
+
 #source {
     position:absolute;
-    left:97px;
-    top:497px;
+    left:364px;
+    top:644px;
+}
+
+#source .niddle {
+    position: absolute;
+    left: 430px;
+    top: 650px;
 }
 
 #sacrifice {
     position: absolute;
-    left: 447px;
-    top: 397px;
+    left: 797px;
+    top: 597px;
 }
 
 #pharaoh {
     position: absolute;
-    left: 297px;
-    top: 147px;   
+    left: 797px;
+    top: 397px;   
 }
             
 .niddle {
