@@ -15,7 +15,8 @@ var left_line = {x: 100},
     MINIMUM = 100,
     MAXIMUM = 600,
     ACCURACY = 3,
-    MAX_REFLECTION = 10;
+    MAX_REFLECTION = 10,
+    __NodeList;
 
 // 寻找给定点(x1, y1)关于某直线(jy-kx-b=0)的对称镜像点
 function getMirrorPoint(x1, y1, line_eq) {
@@ -52,17 +53,18 @@ function drawLine2p(container,x1,y1,x2,y2) {
     var angle  = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
     
     var transform = 'rotate('+angle+'deg)';
-    
-    var line = $('<div>')
+
+    var line = __NodeList('<div>')
     .appendTo(container)
-    //.appendTo('#page')
     .addClass('line')
-    .css({
-        'position': 'absolute',
-        'transform': transform
-    })
+    .offset({left: x1, top: y1})
     .width(length)
-    .offset({left: x1, top: y1});
+    .css({
+        // 'transform': transform,
+        '-webkit-transform': transform,
+        'position': 'absolute'
+        
+    });
     
     //return line;
 }
@@ -218,7 +220,7 @@ function getAngle(id) {
     var target = $(id), matrix, angle;
     
     //transform
-    matrix = target.css("transform");
+    matrix = target.css("-webkit-transform");
     angle = getAngleFromMatrix(matrix);
     
     console.log("angle:"+angle);
@@ -360,9 +362,6 @@ function getLineFuncByPoAn(x1, y1, angle) {
             
             if (point.x !== undefined && point.y !== undefined) {    
                 var distance = Math.abs(line.k*point.x - line.j*point.y + line.b)/Math.sqrt(line.k*line.k + line.j*line.j);
-                if (isNaN(distance)) {
-                    debugger;
-                }
                 console.log(distance);
                 if (distance < ACCURACY) {
                     console.log("on this line");
